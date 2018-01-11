@@ -1,17 +1,44 @@
 # ESLINT
-## Setup for ESLint in projects with editor
+## Setup for ESLint in JS projects
 
-#### In this example Airbnb guide is used
+#### Airbnb guide is used
+https://github.com/airbnb/javascript
 
 * All the rules can be found from .eslintrc file
 
-* Initiate package.json file:\
+* Initiate package.json file:
+
   ` npm init -y `
-* Installation:\
-  ` npm i -D eslint@4.9.0 `
-* Plugins needed:\
-  ` npm i -D eslint-config-airbnb@16.1.0 eslint-plugin-import@2.7.0 eslint-plugin-react@7.4.0 eslint-plugin-jsx-a11y@6.0.1 `
+* Install dependencies:
+
+  ` npm i -D eslint@4.9.0 eslint-config-airbnb@16.1.0 eslint-plugin-import@2.7.0 eslint-plugin-react@7.4.0 eslint-plugin-jsx-a11y@6.0.1 `
 * Make sure ESLint plugin is installed in VSCode
-* Check for extra rules if needed
-* For React JSX add following rule: \
- ` "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }] `
+* Check for extra rules if needed, e.g.:
+```
+{
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "local",
+        "args": "none"
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "consistent-return": "off",
+    "func-names": "off",
+    "global-require": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  }
+}
+```
